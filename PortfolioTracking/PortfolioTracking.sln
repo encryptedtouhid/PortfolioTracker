@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33801.468
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.UI", "PortfolioTracking.UI\PortfolioTracking.UI.csproj", "{100D6465-DF93-4B27-8687-AC9EF39C1038}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.Data", "PortfolioTracking.Data\PortfolioTracking.Data.csproj", "{D12477C0-EAA0-4DD2-80C8-7532AA233C69}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.Service", "PortfolioTracking.Service\PortfolioTracking.Service.csproj", "{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{100D6465-DF93-4B27-8687-AC9EF39C1038}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100D6465-DF93-4B27-8687-AC9EF39C1038}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100D6465-DF93-4B27-8687-AC9EF39C1038}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{100D6465-DF93-4B27-8687-AC9EF39C1038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {586AA323-4C02-4677-A497-C98554C9773A}
+	EndGlobalSection
+EndGlobal
