@@ -20,7 +20,7 @@ namespace PortfolioTracking.Data.Repository
         }
         public async Task<IEnumerable<Portfolio>> GetAllPortfoliobyTraderIdAsync(string TraderId)
         {
-            var query = "SELECT * FROM Portfolio WHERE TraderId = @TraderId";
+            var query = "select pf.Ticker, ot.OperationName, pf.Qty , pf.Price , pf.Cost , pf.TradeDate from Portfolio pf JOIN OperationType ot on pf.OperationTypeId = ot.OperationID";
             using (var connection = _dataContext.CreateConnection())
             {
                 connection.Open();

@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.UI", "Por
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.Data", "PortfolioTracking.Data\PortfolioTracking.Data.csproj", "{D12477C0-EAA0-4DD2-80C8-7532AA233C69}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PortfolioTracking.Service", "PortfolioTracking.Service\PortfolioTracking.Service.csproj", "{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D12477C0-EAA0-4DD2-80C8-7532AA233C69}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E878005-FF8D-4FCE-BF16-E1C4C37E7CF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

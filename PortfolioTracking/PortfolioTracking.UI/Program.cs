@@ -1,10 +1,14 @@
 using PortfolioTracking.Data.Context;
+using PortfolioTracking.Data.IRepository;
+using PortfolioTracking.Data.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
 builder.Services.AddSingleton<PTDataContext>();
+builder.Services.AddScoped<IPortfolioRepository, PortfolioRepository>();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
