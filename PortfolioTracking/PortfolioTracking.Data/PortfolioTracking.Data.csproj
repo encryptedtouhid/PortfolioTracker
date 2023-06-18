@@ -9,7 +9,6 @@
   <ItemGroup>
     <Folder Include="IRepository\" />
     <Folder Include="Repository\" />
-    <Folder Include="SampleData\" />
   </ItemGroup>
 
 </Project>
