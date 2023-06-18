@@ -1,8 +1,62 @@
-﻿@{
+﻿@model IEnumerable<PortfolioTracking.Data.EntityModel.Portfolio>
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table" name="myTable" id="myTable">
+        <tr>
+            <th>
+                Ticker
+            </th>
+            <th>
+                OperationName
+            </th>
+            <th>
+                Qty
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Cost
+            </th>
+
+            <th>
+                TradeDate
+            </th>
+        </tr>
+
+
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OperationName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TradeDate)
+                </td>
+
+            </tr>
+        }
+
+    </table>
 </div>
+
+
+
+

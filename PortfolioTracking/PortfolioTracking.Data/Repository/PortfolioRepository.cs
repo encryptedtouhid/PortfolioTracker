@@ -18,18 +18,20 @@ namespace PortfolioTracking.Data.Repository
         {
             _dataContext = dataContext;
         }
-        public async Task<IEnumerable<Portfolio>> GetAllPortfoliobyTraderIdAsync(string TraderId)
+        public  List<Portfolio> GetAllPortfolio()
         {
             var query = "select pf.Ticker, ot.OperationName, pf.Qty , pf.Price , pf.Cost , pf.TradeDate from Portfolio pf JOIN OperationType ot on pf.OperationTypeId = ot.OperationID";
+            var portfolio = ExecuteDapperQuery<Portfolio>(query);
+            return portfolio;
+        }
+        public List<T> ExecuteDapperQuery<T>(string query)
+        {
             using (var connection = _dataContext.CreateConnection())
             {
                 connection.Open();
 
-                var parameters = new DynamicParameters();
-                parameters.Add("@TraderId", TraderId, DbType.Int32);
-
-                var portfolios = await connection.QueryAsync<Portfolio>(query, parameters);
-                return portfolios.ToList();
+                var result = connection.Query<T>(query);
+                return result.ToList();
             }
         }
 

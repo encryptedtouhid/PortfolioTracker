@@ -19,7 +19,7 @@ namespace PortfolioTracking.Data.EntityModel
 
         public decimal? Cost { get; set; }
 
-        public DateOnly TradeDate { get; set; }
+        public DateTime TradeDate { get; set; }
 
     }
 

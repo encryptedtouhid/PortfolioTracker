@@ -9,6 +9,6 @@ namespace PortfolioTracking.Data.IRepository
 {
     public interface IPortfolioRepository
     {
-        Task<IEnumerable<Portfolio>> GetAllPortfoliobyTraderIdAsync(string id);
+        List<Portfolio> GetAllPortfolio();
     }
 }

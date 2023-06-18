@@ -19,8 +19,7 @@ namespace PortfolioTracking.UI.Controllers
 
         public IActionResult Index()
         {
-           var data = _portfolioRepository.GetAllPortfoliobyTraderIdAsync("10001");
-            return View();
+            return View(_portfolioRepository.GetAllPortfolio());
         }
 
         public IActionResult Privacy()
