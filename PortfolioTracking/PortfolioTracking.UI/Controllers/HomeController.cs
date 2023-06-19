@@ -28,6 +28,7 @@ namespace PortfolioTracking.UI.Controllers
 
         public IActionResult Index()
         {
+           var data =  _portfolioRepository.GetProfitLossReport();
             return View(_portfolioRepository.GetAllPortfolio());
         }
 

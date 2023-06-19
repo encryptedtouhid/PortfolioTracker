@@ -1,10 +1,13 @@
 ﻿using Dapper;
+using Microsoft.Data.SqlClient;
 using PortfolioTracking.Data.Context;
 using PortfolioTracking.Data.EntityModel;
 using PortfolioTracking.Data.IRepository;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,7 +30,8 @@ namespace PortfolioTracking.Data.Repository
 
         public List<PLReportVM> GetProfitLossReport()
         {
-            throw new NotImplementedException();
+            var PLReport = ExecuteStoredProcedure<PLReportVM>("CalculateProfitLoss", null);
+            return (List<PLReportVM>)PLReport;
         }
 
         public void AddStockUpdateDate(DailyPrice dailyStocks, string shortName, string date)
@@ -67,6 +71,15 @@ namespace PortfolioTracking.Data.Repository
                 return result.ToList();
             }
         }
+        public IEnumerable<T> ExecuteStoredProcedure<T>(string storedProcedureName, object parameters = null)
+        {
+            using (var connection = _dataContext.CreateConnection())
+            {
+                var result = connection.Query<T>(storedProcedureName, parameters, commandType: CommandType.StoredProcedure);
+                return result;
+            }
+        }
+
 
     }
 }
