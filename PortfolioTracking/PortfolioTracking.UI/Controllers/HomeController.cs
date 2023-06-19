@@ -17,7 +17,7 @@ namespace PortfolioTracking.UI.Controllers
         private readonly string _alphavantageServiceUrl;
         private readonly string _token;
         private readonly string _techCompanyShortNames;
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration,  IPortfolioRepository portfolioRepository)
+        public HomeController(ILogger<HomeController> logger, IConfiguration configuration, IPortfolioRepository portfolioRepository)
         {
             _logger = logger;
             _portfolioRepository = portfolioRepository;
@@ -51,7 +51,7 @@ namespace PortfolioTracking.UI.Controllers
             foreach (var shortName in shortNames)
             {
                 string url = _alphavantageServiceUrl + "function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + shortName + "&apikey=" + _token;
-     
+
 
                 using (HttpClient client = new HttpClient())
                 {
@@ -80,7 +80,7 @@ namespace PortfolioTracking.UI.Controllers
                                 _portfolioRepository.AddStockUpdateDate(dailyPrice, shortName, date);
                             }
                         }
-                           
+
                     }
                     else
                     {
@@ -89,7 +89,7 @@ namespace PortfolioTracking.UI.Controllers
                     }
                 }
             }
-         
+
             return Json("True");
 
         }
