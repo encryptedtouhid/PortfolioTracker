@@ -8,6 +8,7 @@ using PortfolioTracking.Data.Repository;
 using PortfolioTracking.Data.ViewModel;
 using PortfolioTracking.UI.Models;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace PortfolioTracking.UI.Controllers
 {
@@ -51,7 +52,7 @@ namespace PortfolioTracking.UI.Controllers
         {
             string[] shortNames = _techCompanyShortNames.Split(',');
             string jsonResponse = String.Empty;
-
+           
             foreach (var shortName in shortNames)
             {
                 string url = _alphavantageServiceUrl + "function=TIME_SERIES_DAILY_ADJUSTED&symbol=" + shortName + "&apikey=" + _token;
@@ -69,6 +70,7 @@ namespace PortfolioTracking.UI.Controllers
 
                         if (timeSeries != null)
                         {
+                            _portfolioRepository.RefreshTable();
                             foreach (JProperty timeSeriesData in timeSeries.Children<JProperty>())
                             {
                                 DailyPrice dailyPrice = new DailyPrice();
@@ -83,6 +85,11 @@ namespace PortfolioTracking.UI.Controllers
                                 dailyPrice.Volume = (string)priceData.GetValue("6. volume");
                                 _portfolioRepository.AddStockUpdateDate(dailyPrice, shortName, date);
                             }
+                        }
+                        else
+                        {
+                            string RED = Console.IsOutputRedirected ? "" : "\x1b[91m";
+                            Console.Write($"{RED}"+(string)jsonData.GetValue("Note"));
                         }
 
                     }

@@ -12,5 +12,6 @@ namespace PortfolioTracking.Data.IRepository
         List<Portfolio> GetAllPortfolio();
         List<PLReportVM> GetProfitLossReport();
         void AddStockUpdateDate(DailyPrice dailyStocks, string shortName, string date);
+        void RefreshTable();
     }
 }

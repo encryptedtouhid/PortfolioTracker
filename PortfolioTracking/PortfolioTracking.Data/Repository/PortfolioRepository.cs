@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -56,6 +57,18 @@ namespace PortfolioTracking.Data.Repository
                 };
 
                 connection.Execute(query, parameters);
+
+            }
+        }
+
+        public void RefreshTable()
+        {
+            string query = "truncate table Stock";
+            using (var connection = _dataContext.CreateConnection())
+            {
+                connection.Open();      
+
+                connection.Execute(query);
 
             }
         }
