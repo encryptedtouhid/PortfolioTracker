@@ -47,7 +47,7 @@ namespace PortfolioTracking.UI.Controllers
         }
 
 
-        public JsonResult GetLiveStockUpdate()
+        public IActionResult GetLiveStockUpdate()
         {
             string[] shortNames = _techCompanyShortNames.Split(',');
             string jsonResponse = String.Empty;
@@ -67,7 +67,7 @@ namespace PortfolioTracking.UI.Controllers
                         JObject jsonData = JObject.Parse(jsonResponse);
                         JObject timeSeries = (JObject)jsonData["Time Series (Daily)"];
 
-                        if (timeSeries.Children<JProperty>().Count() > 0)
+                        if (timeSeries != null)
                         {
                             foreach (JProperty timeSeriesData in timeSeries.Children<JProperty>())
                             {
@@ -94,7 +94,7 @@ namespace PortfolioTracking.UI.Controllers
                 }
             }
 
-            return Json("True");
+            return RedirectPreserveMethod("Index");
 
         }
     }
