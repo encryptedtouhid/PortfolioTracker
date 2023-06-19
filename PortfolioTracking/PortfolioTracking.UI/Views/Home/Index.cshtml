@@ -9,8 +9,6 @@
     <h1>PORTFOLIO</h1>
 </div>
 <div class="mb-3">
-
-
     <table class="table table-success table-striped" name="portfolioTable" id="portfolioTable">
         <tr>
             <th>
@@ -62,6 +60,9 @@
         }
 
     </table>
+</div>
+<div class="text-center">
+    <button type="button" class="btn btn-sm btn-secondary" onclick="PrintPortFolio()">Print Portfolio</button>
 </div>
 
 <hr />
@@ -148,9 +149,29 @@
 
     </table>
 </div>
+<div class="text-center">
+    <button type="button" class="btn btn-sm btn-secondary" onclick="PrintPLReport()">Print P&L Report</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.1.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script>
 
 
+    function PrintPortFolio() {
+        const table = document.getElementById('portfolioTable');
 
+        html2pdf().set({ html2canvas: { scale: 4 } }).from(table).save('portfolio.pdf');
+    };
+
+    function PrintPLReport() {
+        const table = document.getElementById('plreportTable');
+
+        html2pdf().set({ html2canvas: { scale: 4 } }).from(table).save('pnlreport.pdf');
+    };
+
+
+</script>
 
 
 
