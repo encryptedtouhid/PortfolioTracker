@@ -1,4 +1,5 @@
-﻿@model IEnumerable<PortfolioTracking.Data.EntityModel.Portfolio>
+﻿@using PortfolioTracking.Data;
+@model PortfolioTracking.Data.ViewModel.DataVM
 @{
     ViewData["Title"] = "Home Page";
 }
@@ -29,7 +30,7 @@
 
 
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.PortfolioList)
         {
             <tr>
                 <td>
@@ -49,6 +50,86 @@
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.TradeDate)
+                </td>
+
+            </tr>
+        }
+
+    </table>
+</div>
+
+
+
+<div class="text-center">
+    <table class="table" name="myTable" id="myTable">
+        <tr>
+            <th>
+                Ticker
+            </th>
+            <th>
+                TradeDate
+            </th>
+            <th>
+                Qty
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Cost
+            </th>
+
+            <th>
+                CurrentClose
+            </th>
+            <th>
+                MarketValue
+            </th>
+            <th>
+                PrevClose
+            </th>
+            <th>
+                DailyPL
+            </th>
+            <th>
+                InceptionPL
+            </th>
+        </tr>
+
+
+
+        @foreach (var item in Model.PLReportList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TradeDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CurrentClose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MarketValue)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PrevClose)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DailyPL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InceptionPL)
                 </td>
 
             </tr>

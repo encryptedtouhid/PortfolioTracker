@@ -5,6 +5,7 @@ using Newtonsoft.Json.Linq;
 using PortfolioTracking.Data.EntityModel;
 using PortfolioTracking.Data.IRepository;
 using PortfolioTracking.Data.Repository;
+using PortfolioTracking.Data.ViewModel;
 using PortfolioTracking.UI.Models;
 using System.Diagnostics;
 
@@ -28,8 +29,10 @@ namespace PortfolioTracking.UI.Controllers
 
         public IActionResult Index()
         {
-           var data =  _portfolioRepository.GetProfitLossReport();
-            return View(_portfolioRepository.GetAllPortfolio());
+            DataVM dataVM = new DataVM();
+            dataVM.PLReportList =  _portfolioRepository.GetProfitLossReport();
+            dataVM.PortfolioList = _portfolioRepository.GetAllPortfolio();
+            return View(dataVM);
         }
 
         public IActionResult Privacy()
